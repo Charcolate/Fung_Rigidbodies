@@ -29,10 +29,10 @@ public class week9 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.right, 5);
-        Debug.DrawRay(transform.position, Vector2.right * 1000, Color.red);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, jumpLayerMask);
+        Debug.DrawRay(transform.position, Vector2.down * groundCheckDistance, Color.red);
                 
-        if (hitInfo.collider != null)
+        if (isGround = hitInfo.collider != null)
         {
             print(hitInfo.collider.name);
             Debug.DrawLine(transform.position, hitInfo.point, Color.green);
@@ -40,5 +40,22 @@ public class week9 : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
             body.AddForce(Vector2.up * jumpForce, forceMode);
+    }
+
+    private void OnCollisionEnter2D (Collision2D collision)
+    {
+        print($"started contact with {collision.gameObject.name}");
+    }
+
+    private void OnCollisionStay2D (Collision2D collision)
+    {
+        print($"still contact with {collision.gameObject.name}");
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        print($"ended contact with {collision.gameObject.name}");
+
     }
 }

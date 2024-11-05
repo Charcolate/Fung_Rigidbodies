@@ -15,6 +15,11 @@ public class GunshipController : MonoBehaviour
         Vector3 leftDirection = AimCannon(mousePosition, leftCannon);
         Vector3 rightDirection = AimCannon(mousePosition, rightCannon);
 
+        if (Input.GetButtonDown("Fire1"))
+            FireCannonball(leftDirection, leftCannon);
+
+        if (Input.GetButtonDown("Fire2"))
+            FireCannonball(rightDirection, rightCannon);
     }
 
     private Vector3 AimCannon(Vector3 target, Transform cannon)
@@ -30,6 +35,8 @@ public class GunshipController : MonoBehaviour
 
     private void FireCannonball(Vector3 direction, Transform cannon)
     {
-        
+        GameObject cannonball = Instantiate(cannonballPrefab, cannon.position + cannon.right, Quaternion.identity);
+        cannonball.GetComponent<Rigidbody2D>().AddForce(direction.normalized * cannonballForce);
+
     }
 }
