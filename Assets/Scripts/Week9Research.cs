@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Week9Research : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class Week9Research : MonoBehaviour
     public Vector3 localOffset = new Vector3(1, 1, 0);
 
     //totalforce
-    private Vector2 totalForce;
+    private Vector2 force1 = new Vector2(5f, 0f);
+    private Vector2 force2 = new Vector2(0f, 10f);
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class Week9Research : MonoBehaviour
         //none
 
         //totalforce
-        //none
+         
     }
 
     // Update is called once per frame
@@ -47,6 +49,23 @@ public class Week9Research : MonoBehaviour
         }
 
         //totalforce
-       
+        if (Input.GetMouseButton(0))
+        {
+            rb.AddForce(force1);
+            Debug.Log("Total Force: " + force1);
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            rb.AddForce(force2);
+            Debug.Log("Total Force: " + force2);
+        }
+
+        if (Input.GetMouseButton(2))
+        {
+            rb.AddForce(force1 + force2);
+            Assert.AreEqual(force1 + force2, rb.totalForce);
+            Debug.Log("Total Force: " + force1 + force2);
+        }
     }
 }
