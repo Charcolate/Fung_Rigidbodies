@@ -44,18 +44,18 @@ public class week9 : MonoBehaviour
 
     private void OnCollisionEnter2D (Collision2D collision)
     {
-        print($"started contact with {collision.gameObject.name}");
+        //print($"started contact with {collision.gameObject.name}");
     }
 
     private void OnCollisionStay2D (Collision2D collision)
     {
-        print($"still contact with {collision.gameObject.name}");
+       // print($"still contact with {collision.gameObject.name}");
 
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        print($"ended contact with {collision.gameObject.name}");
+       // print($"ended contact with {collision.gameObject.name}");
 
     }
 }

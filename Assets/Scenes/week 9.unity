@@ -462,6 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 281095365}
+  prefab: {fileID: 8214065686384112071, guid: 44074452453c295498f805cf7a408f27, type: 3}
+  localOffset: {x: 1, y: 1, z: 0}
 --- !u!1 &1371718382
 GameObject:
   m_ObjectHideFlags: 0
